@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+  <title>Únete</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://gitcdn.link/repo/davidshimjs/qrcodejs/master/qrcode.js"></script>
+  <style>
+	.center {
+		margin: auto;
+		width: 80%;
+		border: 3px solid green;
+		padding: 10px;
+		text-align: center;
+	}
+	.button {
+		background-color: #4CAF80;
+		border: none;
+		color: white;
+		margin: 30px;
+		padding: 12px 25px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 18px;
+	}
+	.qrcode > img {
+		display: unset;
+	}
+  </style>
+</head>
+<body>
+	<div class="center">
+		<h1>Party!</h1>
+  	<div class="center" id="qrcode" class="qrcode"></div>
+  	<a id="applink" href="#" class="button">Abrir en la app</a>
+	  <a id="ios_app" href="https://testflight.apple.com/join/tYr4oLsV" class="button"> Descarga IOS</a>
+  	<a id="android_app" href="https://install.appcenter.ms/orgs/go-app/apps/party/distribution_groups/open%20testing" class="button">🤖 Descarga Android</a>
+	</div>
+  <script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code')
+    const link = "https://party.govideo.live/session?join="+code
+    new QRCode(document.getElementById("qrcode"), link);
+    document.getElementById("applink").setAttribute('href', link);
+  </script>
+</body>
