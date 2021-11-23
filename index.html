@@ -37,10 +37,6 @@
 		font-weight: bold;
 		font-size: 20px;
 	}
-	.install_buttons {
-		display: inline;
-		margin: 0 auto;
-	}
 	#qrcode {
 		background: white;
                 border-radius: 28px;
@@ -57,11 +53,8 @@
 		<img src="logo.png" alt="Logo de Party" width="75" height="75"/>
 		<h1>Únete a mi PARTY!</h1>
   		<div id="qrcode"></div>
-  		<a id="applink" href="#" class="button">Abrir en la app</a>
-		<div class="install_buttons">
-	  		<a id="ios_app" href="https://testflight.apple.com/join/tYr4oLsV" class="button"> Descarga IOS</a>
-  			<a id="android_app" href="https://install.appcenter.ms/orgs/go-app/apps/party/distribution_groups/open%20testing" class="button">🤖 Descarga Android</a>
-		</div>
+  		<a id="applink" href="#" class="button">📱 Abrir en la App</a>
+  		<a id="install_app" href="https://testflight.apple.com/join/tYr4oLsV" class="button">⬇️ Descarga la App</a>
 	</div>
   <script type="text/javascript">
     const urlParams = new URLSearchParams(window.location.search);
@@ -69,5 +62,22 @@
     const link = "https://party.govideo.live/session?join="+code
     new QRCode(document.getElementById("qrcode"), link);
     document.getElementById("applink").setAttribute('href', link);
+    const getMobileOS = () => {
+	  const ua = navigator.userAgent
+	  if (/android/i.test(ua)) {
+	    return "Android"
+	  }
+	  else if (/iPad|iPhone|iPod/.test(ua))
+	     || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1){
+	    return "iOS"
+	  }
+	  return "Other"
+    }
+    const os = getMobileOS()
+    if (os === "iOS") {
+	    document.getElementById("install_app").setAttribute('href', "https://testflight.apple.com/join/tYr4oLsV");
+    } else {
+	    document.getElementById("install_app").setAttribute('href', "https://install.appcenter.ms/orgs/go-app/apps/party/distribution_groups/open%20testing");
+    }
   </script>
 </body>
