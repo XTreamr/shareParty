@@ -8,8 +8,8 @@
   <style>
 	.center {
 		margin: auto;
-		width: 90%;
-		padding: 10px;
+		width: 80%;
+		padding: 20px;
 		text-align: center;
 	}
 	.center > h1 {
@@ -22,7 +22,8 @@
 		color: #FFFFFF;
 	}
 	.button {
-		background-color: #4CAF80;
+		border-radius: 12px;
+		background-color: #0066FF;
 		border: none;
 		color: white;
 		margin: 30px;
@@ -31,6 +32,10 @@
 		text-decoration: none;
 		display: inline-block;
 		font-size: 18px;
+	}
+	.install_buttons {
+		display: inline;
+		margin: 0 auto;
 	}
 	#qrcode {
 		background: white;
@@ -49,8 +54,10 @@
 		<h1>Únete a mi PARTY!</h1>
   		<div id="qrcode"></div>
   		<a id="applink" href="#" class="button">Abrir en la app</a>
-	  	<a id="ios_app" href="https://testflight.apple.com/join/tYr4oLsV" class="button"> Descarga IOS</a>
-  		<a id="android_app" href="https://install.appcenter.ms/orgs/go-app/apps/party/distribution_groups/open%20testing" class="button">🤖 Descarga Android</a>
+		<div class="install_buttons">
+	  		<a id="ios_app" href="https://testflight.apple.com/join/tYr4oLsV" class="button"> Descarga IOS</a>
+  			<a id="android_app" href="https://install.appcenter.ms/orgs/go-app/apps/party/distribution_groups/open%20testing" class="button">🤖 Descarga Android</a>
+		</div>
 	</div>
   <script type="text/javascript">
     const urlParams = new URLSearchParams(window.location.search);
